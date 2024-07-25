@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetbook_test/design/palette.dart';
+import 'package:flutter_widgetbook_test/widgetbook/knobs/color/color_knob_builder_extension.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
@@ -7,7 +8,7 @@ class CustomButton extends StatelessWidget {
   final String text;
   final Function onPressed;
   final double fontSize;
-  final bool primary;
+  final Color color;
   final BorderRadius borderRadius;
   final FontWeight fontWeight;
 
@@ -16,7 +17,7 @@ class CustomButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.fontSize = 16,
-    this.primary = true,
+    this.color = Palette.primary,
     this.borderRadius = const BorderRadius.all(Radius.circular(16)),
     this.fontWeight = FontWeight.bold,
   });
@@ -26,8 +27,7 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () => onPressed(),
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(
-            primary ? Palette.primary : Palette.secondary),
+        backgroundColor: WidgetStateProperty.all(color),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: borderRadius,
@@ -53,7 +53,8 @@ Center customButtonUseCase(BuildContext context) {
   return Center(
     child: CustomButton(
       text: context.knobs.string(label: 'Text', initialValue: 'Primary Button'),
-      primary: context.knobs.boolean(label: 'Primary'),
+      color: context.knobs.colorPicker(
+          label: 'Background Color', initialValue: Palette.primary),
       fontWeight: context.knobs.list(
           label: 'Font Weight',
           options: FontWeight.values,

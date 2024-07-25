@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgetbook_test/design/palette.dart';
+import 'package:flutter_widgetbook_test/widgetbook/knobs/color/color_knob_builder_extension.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
@@ -62,10 +63,10 @@ Widget customIconButtonUseCase(BuildContext context) {
           labelBuilder: (icon) => icon.toString()),
       iconSize: context.knobs.double
           .slider(label: 'Icon Size', initialValue: 24, min: 8, max: 48),
-      color:
-          context.knobs.color(label: 'Color', initialValue: Palette.tertiary),
-      iconColor:
-          context.knobs.color(label: 'Icon Color', initialValue: Palette.white),
+      color: context.knobs.colorPicker(
+          label: 'Background Color', initialValue: Palette.tertiary),
+      iconColor: context.knobs
+          .colorPicker(label: 'Icon Color', initialValue: Palette.white),
       onPressed: () {},
     ),
   );
