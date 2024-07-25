@@ -6,6 +6,13 @@ class Palette {
   static const Color tertiary = Color(0xFF4B70F5);
   static const Color highlight = Color(0xFF3DC2EC);
 
+  static const List<Color> styleColors = [
+    primary,
+    secondary,
+    tertiary,
+    highlight,
+  ];
+
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
 
@@ -14,4 +21,17 @@ class Palette {
   static const Color error = Color(0xFFD50000);
 
   static const Color background = Color(0xFF0C0C0C);
+
+  static const List<Color> allColors = [
+    primary,
+    secondary,
+    tertiary,
+    highlight,
+    white,
+    black,
+    success,
+    warning,
+    error,
+    background,
+  ];
 }
