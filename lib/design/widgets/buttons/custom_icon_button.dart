@@ -49,14 +49,17 @@ class CustomIconButton extends StatelessWidget {
 Widget customIconButtonUseCase(BuildContext context) {
   return Center(
     child: CustomIconButton(
-      icon: context.knobs.list(label: 'Icon', options: [
-        Icons.add,
-        Icons.remove,
-        Icons.edit,
-        Icons.delete,
-        Icons.notifications,
-        Icons.notifications_active,
-      ]),
+      icon: context.knobs.list(
+          label: 'Icon',
+          options: [
+            Icons.add,
+            Icons.remove,
+            Icons.edit,
+            Icons.delete,
+            Icons.notifications,
+            Icons.notifications_active,
+          ],
+          labelBuilder: (icon) => icon.toString()),
       iconSize: context.knobs.double
           .slider(label: 'Icon Size', initialValue: 24, min: 8, max: 48),
       color:

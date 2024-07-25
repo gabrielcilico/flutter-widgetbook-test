@@ -13,6 +13,10 @@ import 'package:flutter_widgetbook_test/design/widgets/buttons/custom_button.dar
     as _i2;
 import 'package:flutter_widgetbook_test/design/widgets/buttons/custom_icon_button.dart'
     as _i3;
+import 'package:flutter_widgetbook_test/design/widgets/modal/custom_menu_item.dart'
+    as _i4;
+import 'package:flutter_widgetbook_test/design/widgets/modal/custom_menu_modal.dart'
+    as _i5;
 import 'package:widgetbook/widgetbook.dart' as _i1;
 
 final directories = <_i1.WidgetbookNode>[
@@ -40,7 +44,26 @@ final directories = <_i1.WidgetbookNode>[
                 ),
               ),
             ],
-          )
+          ),
+          _i1.WidgetbookFolder(
+            name: 'modal',
+            children: [
+              _i1.WidgetbookLeafComponent(
+                name: 'CustomMenuItem',
+                useCase: _i1.WidgetbookUseCase(
+                  name: 'Custom Menu Item',
+                  builder: _i4.customMenuItemUseCase,
+                ),
+              ),
+              _i1.WidgetbookLeafComponent(
+                name: 'CustomMenuModal',
+                useCase: _i1.WidgetbookUseCase(
+                  name: 'Custom Menu Modal',
+                  builder: _i5.customMenuModalUseCase,
+                ),
+              ),
+            ],
+          ),
         ],
       )
     ],
